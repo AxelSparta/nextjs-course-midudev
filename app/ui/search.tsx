@@ -10,6 +10,7 @@ export default function Search ({ placeholder }: { placeholder: string }) {
   const { replace } = useRouter()
   const handleChange = useDebouncedCallback((term: string) => {
     const params = new URLSearchParams(searchParams) // este objeto nos permite manipular los parametros de la url más facilmente
+    params.set('page', '1')
     if (term) {
       params.set('query', term)
     } else {
